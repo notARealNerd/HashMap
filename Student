@@ -1,5 +1,6 @@
 
-public class Student {
+public class Student implements Comparable{
+	
 	private String first;
 	private String last;
 	
@@ -9,21 +10,42 @@ public class Student {
 		last = l;
 	}
 	
-	public int hashCode()
+	public String getFirst()
 	{
-		return (first+last).hashCode();
+		return first;
 	}
 	
-	public boolean equals(Object other)
+	public String getLast()
 	{
-		if (other instanceof Student)
+		 return last;
+	}
+	
+	
+	public boolean equals(Object other) //NO LONGER NECESSARY????
+	{
+		if (other instanceof Student1)
 		{
-			Student o = (Student)other;
+			Student1 o = (Student1)other;
 			if (this.hashCode() == o.hashCode()){
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public int compareTo(Object other)
+	{
+		Student comparing;
+		try{
+			comparing = (Student)other;
+		} catch (ClassCastException e){
+			System.out.println("You can't try to add a non-student to this tree");
+			return -5;
+		}
+		String thisName = last+first;
+		String otherName = comparing.getLast() + comparing.getFirst();
+		return (thisName.compareTo(otherName));
+		
 	}
 	
 	public String toString(){
