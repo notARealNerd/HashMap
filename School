@@ -3,16 +3,16 @@ import java.util.*;
 
 
 public class School {
-	private Map<Student, String> gradeMap;
-	private int mapSize;
+	private TreeMap<Student, String> gradeMap; //this is now a treeMap, but it has the same parameters
+	//private int mapSize; //this is now irrelevant
 	
 	public School(){
-		mapSize = 100;
-		gradeMap = new HashMap<Student, String>(mapSize);
+		//mapSize = 100; no longer sizeable
+		gradeMap = new TreeMap<Student, String>(); //must change 
 	}
 	
 	public void add(Student toBeAdded, String grade){
-		gradeMap.put(toBeAdded,  grade);
+		gradeMap.put(toBeAdded,  grade); 
 	}
 	
 	public Object remove(Student toBeRemoved){
@@ -34,13 +34,17 @@ public class School {
 		}
 		System.out.println("Students Enrolled");
 		System.out.println("-----------------------");
-		Iterator keys = gradeMap.keySet().iterator();
-		Iterator values = gradeMap.values().iterator();
+		Student cur = gradeMap.firstKey(); //this had to be changed to first key
 		
-		while(keys.hasNext()&&values.hasNext()){
-			System.out.print(keys.next());
-			System.out.println(values.next());
+		while(cur!=gradeMap.lastKey()){ //this had to be changed to now advance individually with a higher key call
+			System.out.print(cur); //because thats the only way to make it alphabetical
+			System.out.println(gradeMap.get(cur));
+			cur = gradeMap.higherKey(cur);
 		}
+		
+		System.out.print(gradeMap.lastKey()); //you also have to include a separate last iteration
+		System.out.println(gradeMap.get(gradeMap.lastKey())); //because in order to stop the loop properly
+		//you have to stop it one iteration early
 		
 	}
 
