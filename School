@@ -1,0 +1,52 @@
+import java.util.*;
+
+
+
+public class School {
+	private Map<Student, String> gradeMap;
+	private int mapSize;
+	
+	public School(){
+		mapSize = 100;
+		gradeMap = new HashMap<Student, String>(mapSize);
+	}
+	
+	public void add(Student toBeAdded, String grade){
+		gradeMap.put(toBeAdded,  grade);
+	}
+	
+	public Object remove(Student toBeRemoved){
+		return gradeMap.remove(toBeRemoved);
+	}
+	
+	public boolean modify(Student changeling, String newGrade){
+		if (gradeMap.containsKey(changeling)){ //if a student exists
+			gradeMap.put(changeling, newGrade); //then we replace the student with the new grade
+			return true; //if this case is true return true
+		}
+		return false; //else return false bc the student does not exist
+	}
+	
+	public void display(){
+		if(gradeMap.isEmpty()){
+			System.out.println("There are no students enrolled");
+			return;
+		}
+		System.out.println("Students Enrolled");
+		System.out.println("-----------------------");
+		Iterator keys = gradeMap.keySet().iterator();
+		Iterator values = gradeMap.values().iterator();
+		
+		while(keys.hasNext()&&values.hasNext()){
+			System.out.print(keys.next());
+			System.out.println(values.next());
+		}
+		
+	}
+
+	public boolean find(Student stu) {
+		return gradeMap.containsKey(stu); //students are keys
+		//therefore, returning this test is accurate
+	}
+
+}
