@@ -23,9 +23,9 @@ public class Student implements Comparable{
 	
 	public boolean equals(Object other) //NO LONGER NECESSARY????
 	{
-		if (other instanceof Student1)
+		if (other instanceof Student)
 		{
-			Student1 o = (Student1)other;
+			Student o = (Student)other;
 			if (this.hashCode() == o.hashCode()){
 				return true;
 			}
