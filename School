@@ -1,3 +1,11 @@
+/**
+@author Chloe Elliott
+@version Filename: School.java
+@version Date: 4/9/15
+@version Program: HashMap Program
+@version Description: Store HashMap with students and corresponding grades, simulates a gradebook
+*/
+
 import java.util.*;
 
 
@@ -11,14 +19,37 @@ public class School {
 		gradeMap = new HashMap<Student, String>(mapSize);
 	}
 	
+	/**
+	Adds a student and grade to the hashmap
+	@param toBeAdded the student to be added as a key
+	@param grade the grade of the student to be added as a value
+	@return none
+	@pre toBeAdded is actually a student
+	@post a new entry has been added to the hashmap
+	*/
 	public void add(Student toBeAdded, String grade){
 		gradeMap.put(toBeAdded,  grade);
 	}
 	
+	/**
+	Remove a student and grade from the hashmap
+	@param toBeRemoved the student to be removed
+	@return Object the entry removed
+	@pre toBeAdded is actually a student
+	@post if the student existed, it is now removed from the gradebook
+	*/
 	public Object remove(Student toBeRemoved){
 		return gradeMap.remove(toBeRemoved);
 	}
 	
+	/**
+	Changes an existing student's grade
+	@param toBeAdded the student to be added as a key
+	@param grade the grade of the student to be added as a value
+	@return none
+	@pre toBeAdded is actually a student
+	@post a new entry has been added to the hashmap
+	*/
 	public boolean modify(Student changeling, String newGrade){
 		if (gradeMap.containsKey(changeling)){ //if a student exists
 			gradeMap.put(changeling, newGrade); //then we replace the student with the new grade
