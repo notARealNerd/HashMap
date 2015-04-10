@@ -1,3 +1,10 @@
+/**
+@author Chloe Elliott
+@version Filename: Student.java
+@version Date: 4/9/15
+@version Program: HashMap Program
+@version Description: represents a student with a first and last name and grade
+*/
 
 public class Student implements Comparable{
 	
