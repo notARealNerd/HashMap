@@ -9,19 +9,39 @@ public class Student implements Comparable{
 		first = f;
 		last = l;
 	}
-	
+
+	/**
+	Returns the students first name
+	@param none
+	@return String the first name
+	@pre none
+	@post none
+	*/
 	public String getFirst()
 	{
 		return first;
 	}
 	
+	/**
+	Returns the students last name
+	@param none
+	@return String the last name
+	@pre none
+	@post none
+	*/
 	public String getLast()
 	{
 		 return last;
 	}
 	
-	
-	public boolean equals(Object other) //NO LONGER NECESSARY????
+	/**
+	Tests if two students are the same
+	@param other the student to be compared
+	@return boolean that shows whether the students are the same
+	@pre none
+	@post none
+	*/
+	public boolean equals(Object other)
 	{
 		if (other instanceof Student)
 		{
@@ -33,6 +53,13 @@ public class Student implements Comparable{
 		return false;
 	}
 	
+	/**
+	Compares two students by numeric value
+	@param other the student to be compared
+	@return int that represents the numerical difference between the first and second student
+	@pre other is actually a student
+	@post none
+	*/
 	public int compareTo(Object other)
 	{
 		Student comparing;
@@ -48,6 +75,13 @@ public class Student implements Comparable{
 		
 	}
 	
+	/**
+	Returns the objects values as a string
+	@param none
+	@return String that shows object data
+	@pre none
+	@post none
+	*/
 	public String toString(){
 		return (first + " " + last + " ");
 	}
