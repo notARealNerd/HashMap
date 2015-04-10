@@ -9,7 +9,6 @@
 import java.util.*;
 
 
-
 public class School {
 	private TreeMap<Student, String> gradeMap; //this is now a treeMap, but it has the same parameters
 	//private int mapSize; //this is now irrelevant
@@ -19,14 +18,38 @@ public class School {
 		gradeMap = new TreeMap<Student, String>(); //must change 
 	}
 	
+	/**
+	Adds a student and grade to the hashmap
+	@param toBeAdded the student to be added as a key
+	@param grade the grade of the student to be added as a value
+	@return none
+	@pre toBeAdded is actually a student
+	@post a new entry has been added to the hashmap
+	*/
 	public void add(Student toBeAdded, String grade){
 		gradeMap.put(toBeAdded,  grade); 
 	}
 	
+	/**
+	Remove a student and grade from the hashmap
+	@param toBeRemoved the student to be removed
+	@return Object the entry removed
+	@pre toBeAdded is actually a student
+	@post if the student existed, it is now removed from the gradebook
+	*/
 	public Object remove(Student toBeRemoved){
 		return gradeMap.remove(toBeRemoved);
 	}
 	
+	
+	/**
+	Changes an existing student's grade
+	@param changeling the student to be changed
+	@param newGrade the new grade of the student
+	@return boolean showing whether the student was present or not
+	@pre none
+	@post a student's grade may have been changed
+	*/
 	public boolean modify(Student changeling, String newGrade){
 		if (gradeMap.containsKey(changeling)){ //if a student exists
 			gradeMap.put(changeling, newGrade); //then we replace the student with the new grade
@@ -35,6 +58,13 @@ public class School {
 		return false; //else return false bc the student does not exist
 	}
 	
+	/**
+	Displays the students and grades
+	@param none
+	@return none
+	@pre none
+	@post none
+	*/
 	public void display(){
 		if(gradeMap.isEmpty()){
 			System.out.println("There are no students enrolled");
@@ -56,6 +86,13 @@ public class School {
 		
 	}
 
+	/**
+	Locates a student in the map
+	@param stu the student to be found
+	@return boolean showing whether the student was found
+	@pre none
+	@post none
+	*/
 	public boolean find(Student stu) {
 		return gradeMap.containsKey(stu); //students are keys
 		//therefore, returning this test is accurate
