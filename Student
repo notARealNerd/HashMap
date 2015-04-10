@@ -1,9 +1,9 @@
 /**
 @author Chloe Elliott
-@version Filename: School.java
+@version Filename: Student.java
 @version Date: 4/9/15
 @version Program: HashMap Program
-@version Description: Store HashMap with students and corresponding grades, simulates a gradebook
+@version Description: represents a student with a first and last name and grade
 */
 
 public class Student {
@@ -16,11 +16,25 @@ public class Student {
 		last = l;
 	}
 	
+	/**
+	Creates a hashcode for this object
+	@param none
+	@return int the hashcode
+	@pre first and last are not null
+	@post none
+	*/
 	public int hashCode()
 	{
 		return (first+last).hashCode();
 	}
 	
+	/**
+	Tests if two students are the same
+	@param other the student to be compared
+	@return boolean that shows whether the students are the same
+	@pre none
+	@post none
+	*/
 	public boolean equals(Object other)
 	{
 		if (other instanceof Student)
@@ -33,6 +47,13 @@ public class Student {
 		return false;
 	}
 	
+	/**
+	Returns the objects values as a string
+	@param none
+	@return  String that shows object data
+	@pre none
+	@post none
+	*/
 	public String toString(){
 		return (first + " " + last + " ");
 	}
