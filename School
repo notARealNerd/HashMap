@@ -1,3 +1,11 @@
+/**
+@author Chloe Elliott
+@version Filename: School.java
+@version Date: 4/9/15
+@version Program: HashMap Program
+@version Description: Store TreeMap with students and corresponding grades, simulates a gradebook
+*/
+
 import java.util.*;
 
 
