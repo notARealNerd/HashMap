@@ -44,11 +44,11 @@ public class School {
 	
 	/**
 	Changes an existing student's grade
-	@param toBeAdded the student to be added as a key
-	@param grade the grade of the student to be added as a value
-	@return none
-	@pre toBeAdded is actually a student
-	@post a new entry has been added to the hashmap
+	@param changeling the student to be changed
+	@param newGrade the new grade of the student
+	@return boolean showing whether the student was present or not
+	@pre none
+	@post a student's grade may have been changed
 	*/
 	public boolean modify(Student changeling, String newGrade){
 		if (gradeMap.containsKey(changeling)){ //if a student exists
@@ -58,6 +58,13 @@ public class School {
 		return false; //else return false bc the student does not exist
 	}
 	
+	/**
+	Displays the students and grades
+	@param none
+	@return none
+	@pre none
+	@post none
+	*/
 	public void display(){
 		if(gradeMap.isEmpty()){
 			System.out.println("There are no students enrolled");
@@ -75,6 +82,14 @@ public class School {
 		
 	}
 
+
+	/**
+	Locates a student in the map
+	@param stu the student to be found
+	@return boolean showing whether the student was found
+	@pre none
+	@post none
+	*/
 	public boolean find(Student stu) {
 		return gradeMap.containsKey(stu); //students are keys
 		//therefore, returning this test is accurate
